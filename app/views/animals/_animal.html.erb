@@ -1,0 +1,70 @@
+<!-- app/views/animals/_animal.html.erb -->
+<div class="animal-card">
+  <div class="animal-info">
+    <h3 class="animal-name"><%= link_to animal.name, animal_path(animal) %></h3>
+    <p class="animal-details">
+      <strong><%= animal.species %></strong> - <%= animal.breed %> - <%= animal.age %> years old
+    </p>
+    <p class="animal-meta">
+      Added <%= time_ago_in_words(animal.intake_date) %> ago
+    </p>
+  </div>
+  
+  <div class="animal-status">
+    <% if animal.adopted %>
+      <span class="badge adopted">Adopted</span>
+    <% else %>
+      <span class="badge available">Available</span>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .animal-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.2s;
+  }
+  .animal-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .animal-name {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+  }
+  .animal-name a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  .animal-name a:hover {
+    text-decoration: underline;
+  }
+  .animal-details {
+    margin: 5px 0;
+    color: #555;
+  }
+  .animal-meta {
+    margin: 5px 0;
+    color: #95a5a6;
+    font-size: 14px;
+  }
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .badge.adopted {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  .badge.available {
+    background: #fff3e0;
+    color: #e65100;
+  }
+</style>

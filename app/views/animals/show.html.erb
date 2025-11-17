@@ -1,0 +1,110 @@
+<!-- app/views/animals/show.html.erb -->
+<div class="animal-show">
+  <header class="show-header">
+    <h1><%= @animal.name %></h1>
+    <% if @animal.adopted %>
+      <span class="badge adopted">Adopted</span>
+    <% else %>
+      <span class="badge available">Available for Adoption</span>
+    <% end %>
+  </header>
+
+  <div class="animal-details-grid">
+    <div class="detail-item">
+      <label>Species:</label>
+      <span><%= @animal.species %></span>
+    </div>
+
+    <div class="detail-item">
+      <label>Breed:</label>
+      <span><%= @animal.breed %></span>
+    </div>
+
+    <div class="detail-item">
+      <label>Age:</label>
+      <span><%= pluralize(@animal.age, "year") %> old</span>
+    </div>
+
+    <div class="detail-item">
+      <label>Intake Date:</label>
+      <span><%= @animal.intake_date.strftime("%B %d, %Y") %></span>
+    </div>
+
+    <div class="detail-item full-width">
+      <label>Notes:</label>
+      <div class="notes">
+        <%= simple_format(@animal.notes) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= link_to "Back to List", animals_path, class: "btn btn-secondary" %>
+    <%= link_to "Edit", edit_animal_path(@animal), class: "btn btn-primary" %>
+    <%= button_to "Delete", animal_path(@animal), method: :delete, 
+        data: { confirm: "Are you sure you want to delete #{@animal.name}?" },
+        class: "btn btn-danger" %>
+  </div>
+</div>
+
+<style>
+  .animal-show { max-width: 800px; margin: 0 auto; padding: 20px; }
+  .show-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .show-header h1 { margin: 0; color: #2c3e50; }
+  .animal-details-grid {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+  }
+  .detail-item {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+  }
+  .detail-item.full-width {
+    grid-column: 1 / -1;
+  }
+  .detail-item label {
+    font-weight: 600;
+    color: #555;
+  }
+  .detail-item span {
+    color: #2c3e50;
+  }
+  .notes {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 1.6;
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-secondary {
+    background: #95a5a6;
+    color: white;
+  }
+  .btn-secondary:hover {
+    background: #7f8c8d;
+  }
+  .btn-danger {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-danger:hover {
+    background: #c0392b;
+  }
+</style>
