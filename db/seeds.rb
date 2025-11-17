@@ -27,7 +27,7 @@ Animal.create([
     age: 2,
     intake_date: 3.weeks.ago,
     adopted: true,
-    notes: "Quiet and affectionate. Prefers indoor living."
+    notes: "Quiet and affectionate. Likes to stay inside."
   },
   {
     name: "Charlie",
@@ -36,7 +36,7 @@ Animal.create([
     age: 5,
     intake_date: 1.month.ago,
     adopted: false,
-    notes: "Energetic and curious. Needs regular exercise."
+    notes: "Energetic and curious. Requires exercise regularly."
   },
   {
     name: "Whiskers",
@@ -54,7 +54,7 @@ Animal.create([
     age: 4,
     intake_date: 5.days.ago,
     adopted: false,
-    notes: "Well-trained and obedient. Great family dog."
+    notes: "Well trained and obedient. Great family dog."
   }
 ])
 
