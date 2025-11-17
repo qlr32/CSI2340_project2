@@ -1,24 +1,9 @@
-# README
+Quentin Loree
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Animal Shelter Intake System
 
-Things you may want to cover:
+CSI 2340 - Project 2
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This Rails application helps an animal shelter manage their animal intake records.
+It provides full CRUD functionality to track animals including their name, species,
+breed, age, intake date, adoption status, and notes.
